@@ -10,7 +10,7 @@ embeddings = OllamaEmbeddings(model="qwen2.5:3b")
 
 # Qdrant connection settings.
 URL = "http://localhost:6333"
-COLLECTION_NAME = "lexguard_docs"
+COLLECTION_NAME = "graphlex_docs"
 
 def process_document(file_path: str):
     try:

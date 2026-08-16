@@ -1,5 +1,5 @@
 [project]
-name = "lexguard"
+name = "graphlex"
 version = "0.1.0"
 description = "Production-tier Local RAG for German Market"
 authors = [

@@ -1,7 +1,7 @@
 services:
   qdrant:
     image: qdrant/qdrant:latest
-    container_name: lexguard-db
+    container_name: graphlex-db
     ports:
       - "6333:6333"
       - "6334:6334"
@@ -9,13 +9,13 @@ services:
       - ./qdrant_storage:/qdrant/storage:z
     restart: always
     networks:
-      - lexguard-network
+      - graphlex-network
 
   # Optional but highly recommended: Langfuse for Observability
 
   langfuse:
     image: langfuse/langfuse:latest
-    container_name: lexguard-obs
+    container_name: graphlex-obs
     depends_on:
       db:
         condition: service_healthy
@@ -28,11 +28,11 @@ services:
       - SALT=mysalt
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
     networks:
-      - lexguard-network
+      - graphlex-network
 
   db:
     image: postgres:16
-    container_name: lexguard-obs-db
+    container_name: graphlex-obs-db
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -46,8 +46,8 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - lexguard-network
+      - graphlex-network
 
 networks:
-  lexguard-network:
+  graphlex-network:
     driver: bridge

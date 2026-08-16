@@ -197,10 +197,10 @@ workflow.add_conditional_edges(
 )
 workflow.add_edge("rewrite", "retrieve")
 
-lexguard_agent = workflow.compile()
+graphlex_agent = workflow.compile()
 
 
-def ask_lexguard(question: str, target_file: str = None):
+def ask_graphlex(question: str, target_file: str = None):
     """Run the agent for a single question and return the generated answer."""
     inputs = {
         "question": question,
@@ -209,5 +209,5 @@ def ask_lexguard(question: str, target_file: str = None):
         "relevance": "",
         "loop_count": 0,
     }
-    result = lexguard_agent.invoke(inputs)
+    result = graphlex_agent.invoke(inputs)
     return result.get("generation", "")

@@ -8,11 +8,11 @@ PROJECT_ROOT = file_path.parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.database import process_document
-from src.engine import lexguard_agent, search_knowledge
+from src.database import process_document, search_knowledge
+from src.engine import graphlex_agent
 
-st.set_page_config(page_title="LexGuard AI", page_icon="🛡️", layout="wide")
-st.title("🛡️ LexGuard: Secure Document Intelligence")
+st.set_page_config(page_title="GraphLex AI", page_icon="🛡️", layout="wide")
+st.title("🛡️ GraphLex AI: Secure Document Intelligence")
 
 if "active_file" not in st.session_state:
     st.session_state.active_file = None
@@ -55,7 +55,7 @@ else:
 user_input = st.text_input("Enter your question about the uploaded document:")
 
 if user_input and st.session_state.active_file:
-    with st.spinner("LexGuard Agent is navigating the document manifold..."):
+    with st.spinner("GraphLex Agent is navigating the document manifold..."):
         inputs = {
             "question": user_input,
             "target_file": st.session_state.active_file,
@@ -63,7 +63,7 @@ if user_input and st.session_state.active_file:
             "relevance": "",
             "loop_count": 0,
         }
-        result = lexguard_agent.invoke(inputs)
+        result = graphlex_agent.invoke(inputs)
 
         if result.get("relevance") == "yes":
             st.chat_message("assistant").write(result["generation"])

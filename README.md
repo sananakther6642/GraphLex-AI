@@ -1,6 +1,6 @@
-# LexGuard
+# GraphLex AI
 
-LexGuard is a local document assistant for PDF ingestion, retrieval, and question answering. It uses Qdrant for vector storage, Ollama for local model inference, and LangGraph for the agent workflow.
+GraphLex AI is a local document assistant for PDF ingestion, retrieval, and question answering. It uses Qdrant for vector storage, Ollama for local model inference, and LangGraph for the agent workflow.
 
 ## Features
 
@@ -22,7 +22,7 @@ LexGuard is a local document assistant for PDF ingestion, retrieval, and questio
 ## Project Layout
 
 ```text
-LexGuard/
+GraphLex-AI/
 ├── docker-compose.yml
 ├── pyproject.toml
 ├── README.md

@@ -5,17 +5,17 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.engine import lexguard_agent
+from src.engine import graphlex_agent
 
 def run_positive_test():
     """Verify that the agent answers a document-related query."""
     print("\n--- POSITIVE TEST: VALID INQUIRY ---")
     inputs = {"question": "What is the invoice number?"}
 
-    result = lexguard_agent.invoke(inputs)
+    result = graphlex_agent.invoke(inputs)
 
     if "generation" in result:
-        print(f"LexGuard response: {result['generation']}")
+        print(f"GraphLex response: {result['generation']}")
     else:
         print("Test failed: the agent refused to answer a valid question.")
 
@@ -24,7 +24,7 @@ def run_negative_test():
     print("\n--- NEGATIVE TEST: IRRELEVANT INQUIRY ---")
     inputs = {"question": "What is the capital of France?"}
 
-    result = lexguard_agent.invoke(inputs)
+    result = graphlex_agent.invoke(inputs)
 
     if "generation" not in result:
         print("Success: the agent correctly identified the context as irrelevant.")

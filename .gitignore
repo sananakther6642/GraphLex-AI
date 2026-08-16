@@ -46,3 +46,4 @@ data/
 *.pdf
 .env
 .env.local
+plan.md
